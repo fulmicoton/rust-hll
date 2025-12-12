@@ -1,6 +1,6 @@
 use dense::DenseRegisters;
 use explicit::ExplicitStorage;
-use settings::{Settings, SettingsError};
+pub use settings::{Settings, SettingsError};
 use sparse::SparseRegisters;
 use thiserror::Error;
 
@@ -93,7 +93,7 @@ impl Hll {
         Hll::Empty(settings)
     }
 
-    pub(crate) fn add_raw(&mut self, value: u64) {
+    pub fn add_raw(&mut self, value: u64) {
         if value == 0 {
             return;
         }
